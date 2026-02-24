@@ -21,6 +21,26 @@ results/**/*.json
 results/**/*.jsonl
 results/**/*.csv
 !results/.gitkeep
+!results/unified_v3/
+!results/ablation/
+
+# Old intermediate experiment runs (keep only unified_v3 + ablation)
+results/smoke_test/
+results/smoke_v2/
+results/cerebras_v2/
+results/cloud_v2_fast/
+results/cloud_v2_500/
+results/cohere_v2/
+results/local_run_001/
+results/local_v2_200/
+results/local_v3/
+results/gemini_pro_v2/
+results/sambanova_v2/
+
+# Paper template/research files (not part of submission)
+paper/related_work_research.md
+paper/neurips_2025.pdf
+paper/neurips_2025.tex
 *.log
 logs/
 wandb/
