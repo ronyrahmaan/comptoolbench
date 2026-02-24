@@ -52,6 +52,7 @@ wandb/
 *.key
 tmp/
 .cache/
+_archive/
 arxiv_submission.tar.gz
 htmlcov/
 .coverage
