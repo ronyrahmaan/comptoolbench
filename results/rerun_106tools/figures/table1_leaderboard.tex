@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{CompToolBench leaderboard. Best values \textbf{bolded}. Gap = min(L0 per-tool) $-$ composed accuracy (lower is better).}
+\label{tab:leaderboard}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Model & L0 & L1 & L2 & L3 & Overall & Gap↓ \\
+\midrule
+Command A & 41.7% & 60.5% & \textbf{87.8%} & \textbf{41.9%} & \textbf{57.0%} & \textbf{-60.5%} \\
+Command R+ & \textbf{43.8%} & \textbf{61.3%} & 84.0% & 39.6% & 56.4% & -58.7% \\
+GPT-OSS 120B (Cerebras) & \textbf{43.8%} & 54.2% & 34.8% & 3.3% & 35.6% & -27.3% \\
+Llama 4 Scout 17B (Groq) & 35.4% & 1.8% & 16.2% & 0.9% & 12.6% & -5.0% \\
+Llama 3.1 8B (Groq) & 0.0% & 0.0% & 15.0% & 0.0% & 3.0% & -4.5% \\
+Llama 3.1 8B (Cerebras) & 0.0% & 0.0% & 15.0% & 0.0% & 3.0% & -4.5% \\
+\bottomrule
+\end{tabular}
+\end{table}

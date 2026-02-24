@@ -1,0 +1,178 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/",
+    "rai": "http://mlcommons.org/croissant/RAI/"
+  },
+  "@type": "sc:Dataset",
+  "dct:conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "CompToolBench",
+  "description": "CompToolBench is a controlled benchmark for evaluating compositional tool-use capabilities in large language models. It comprises 200 tasks across 106 deterministic tools at four DAG-based composition levels (L0: single call, L1: sequential chain, L2: parallel fork-join, L3: complex DAG), enabling systematic measurement of the Selection Gap — the finding that single-tool selection from a realistic catalog is harder than multi-tool composition.",
+  "url": "https://github.com/ronyrahmaan/comptoolbench",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "version": "2.0.0",
+  "datePublished": "2026-03-10",
+  "dateModified": "2026-03-10",
+  "keywords": [
+    "tool-use",
+    "LLM evaluation",
+    "benchmark",
+    "compositional generalization",
+    "function calling",
+    "agent evaluation"
+  ],
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Md A Rahman",
+    "url": "https://whoismdarahman.com",
+    "affiliation": {
+      "@type": "sc:Organization",
+      "name": "Texas Tech University",
+      "url": "https://www.ttu.edu"
+    }
+  },
+  "publisher": {
+    "@type": "sc:Organization",
+    "name": "HuggingFace",
+    "url": "https://huggingface.co"
+  },
+  "citation": "Rahman, M. A. (2026). CompToolBench: Measuring the Compositional Tool-Use Gap in Large Language Models. Working Paper, Texas Tech University.",
+  "sameAs": [
+    "https://huggingface.co/datasets/ronyrahmaan/comptoolbench",
+    "https://zenodo.org/records/18907784"
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "huggingface-repository",
+      "name": "huggingface-repository",
+      "description": "The HuggingFace dataset repository hosting CompToolBench.",
+      "contentUrl": "https://huggingface.co/datasets/ronyrahmaan/comptoolbench",
+      "encodingFormat": "git+https",
+      "sc:sdDatePublished": "2026-03-10"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "task-suite-json",
+      "name": "task_suite.json",
+      "description": "The complete 200-task evaluation suite with ground-truth expected traces, tool schemas, and metadata.",
+      "contentUrl": "https://huggingface.co/datasets/ronyrahmaan/comptoolbench/resolve/main/task_suite.json",
+      "encodingFormat": "application/json",
+      "containedIn": {
+        "@id": "huggingface-repository"
+      }
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "tasks",
+      "name": "tasks",
+      "description": "Each record represents one evaluation task in the CompToolBench benchmark. Tasks are organized across four composition levels (L0–L3) with increasing structural complexity.",
+      "key": {
+        "@id": "tasks/task_id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/task_id",
+          "name": "task_id",
+          "description": "Unique identifier for the task, encoding the composition level and index (e.g., L0_node_0001, L1_chain_0049, L2_parallel_0116, L3_dag_0177).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "task-suite-json"
+            },
+            "extract": {
+              "jsonPath": "$[*].task_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/level",
+          "name": "level",
+          "description": "Composition level: 0 (single call), 1 (sequential chain), 2 (parallel fork-join), or 3 (complex DAG).",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "task-suite-json"
+            },
+            "extract": {
+              "jsonPath": "$[*].level"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/prompt",
+          "name": "prompt",
+          "description": "Natural-language task description presented to the model. L0 prompts are deliberately minimal; L1–L3 prompts describe multi-step workflows.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "task-suite-json"
+            },
+            "extract": {
+              "jsonPath": "$[*].prompt"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/available_tools",
+          "name": "available_tools",
+          "description": "JSON array of tool schemas (OpenAI function-calling format) available for this task, including the correct tool(s) and distractors from the 106-tool catalog.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "task-suite-json"
+            },
+            "extract": {
+              "jsonPath": "$[*].available_tools"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/expected_trace",
+          "name": "expected_trace",
+          "description": "Ground-truth sequence of tool calls with expected arguments and outputs, encoded as a JSON array. Defines the correct DAG execution order.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "task-suite-json"
+            },
+            "extract": {
+              "jsonPath": "$[*].expected_trace"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "tasks/metadata",
+          "name": "metadata",
+          "description": "Task metadata including DAG structure, number of steps, category tags, and generation parameters (seed, engine version).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "task-suite-json"
+            },
+            "extract": {
+              "jsonPath": "$[*].metadata"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "rai:dataCollection": "All 200 tasks are synthetically generated by the deterministic CompositionEngine (seed 42). No human data, personal information, or web-scraped content is included. The 106 tool schemas are author-designed with realistic parameter types.",
+  "rai:dataCollectionType": "Synthetically generated",
+  "rai:dataBiases": "Tasks are English-only and reflect common software utility patterns (weather, text processing, calculation). The tool catalog may not represent domain-specific or culturally diverse tool ecosystems.",
+  "rai:personalSensitiveInformation": "None. All data is synthetic. No personal, biometric, or sensitive information is present in any task or tool output."
+}
