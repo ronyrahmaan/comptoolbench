@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /Users/rono/Garage/phd/projects/comptoolbench
+cd "$(dirname "$0")/../.."
 
 MODELS=("mistral-nemo-12b" "llama3.1-8b" "qwen2.5-7b" "mistral-7b" "granite4-3b")
 OUTPUT="results/local_run_001"

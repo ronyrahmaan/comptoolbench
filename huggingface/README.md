@@ -10,21 +10,7 @@ dataset_info:
     - name: available_tools
       sequence: string
     - name: expected_trace
-      struct:
-        - name: steps
-          list:
-            - name: step_id
-              dtype: string
-            - name: tool_name
-              dtype: string
-            - name: arguments
-              dtype: string
-            - name: depends_on
-              sequence: string
-            - name: output_key
-              dtype: string
-        - name: final_answer_source
-          dtype: string
+      dtype: string
     - name: expected_final_answer
       dtype: string
     - name: num_steps
@@ -167,7 +153,7 @@ Results from evaluating 18 models (10 cloud, 8 local) on all 200 tasks. Models a
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("comptoolbench/CompToolBench", split="test")
+dataset = load_dataset("mdarahmanxAI/comptoolbench", split="test")
 
 # Browse tasks by composition level
 l3_tasks = dataset.filter(lambda x: x["level"] == "L3_dag")
@@ -177,7 +163,7 @@ print(l3_tasks[0]["prompt"])
 
 ### Evaluating a Model
 
-CompToolBench evaluates models by comparing their tool-call traces against the expected trace. The evaluation harness is available in the [GitHub repository](https://github.com/comptoolbench/comptoolbench).
+CompToolBench evaluates models by comparing their tool-call traces against the expected trace. The evaluation harness is available in the [GitHub repository](https://github.com/ronyrahmaan/comptoolbench).
 
 ```python
 import json
@@ -227,5 +213,5 @@ This dataset is released under the [Creative Commons Attribution 4.0 Internation
 ## Links
 
 - **Paper**: [arXiv (coming soon)]()
-- **Code**: [GitHub](https://github.com/comptoolbench/comptoolbench)
-- **Demo**: [HuggingFace Spaces (coming soon)]()
+- **Code**: [GitHub](https://github.com/ronyrahmaan/comptoolbench)
+- **Demo**: [HuggingFace Spaces](https://huggingface.co/spaces/mdarahmanxAI/comptoolbench-demo)

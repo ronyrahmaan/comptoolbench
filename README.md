@@ -2,7 +2,9 @@
 
 **Measuring the Compositional Tool-Use Gap in Large Language Models**
 
-[![Paper](https://img.shields.io/badge/Paper-ArXiv-red)](https://arxiv.org/abs/XXXX.XXXXX)
+[![Paper](https://img.shields.io/badge/Paper-ArXiv-red)](https://arxiv.org/abs/coming-soon)
+[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow)](https://huggingface.co/datasets/mdarahmanxAI/comptoolbench)
+[![Demo](https://img.shields.io/badge/Demo-HuggingFace_Spaces-orange)](https://huggingface.co/spaces/mdarahmanxAI/comptoolbench-demo)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-blue.svg)](https://python.org)
 [![Tests](https://img.shields.io/badge/Tests-305%20passing-brightgreen.svg)]()
@@ -149,7 +151,7 @@ suite = engine.generate_suite(l0_count=48, l1_count=64, l2_count=40, l3_count=48
 @article{rahman2026comptoolbench,
   title={CompToolBench: Measuring the Compositional Tool-Use Gap in Large Language Models},
   author={Rahman, Md A},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  journal={arXiv preprint},
   year={2026}
 }
 ```
